@@ -1,0 +1,250 @@
+You are Codex working inside this repository.
+
+---
+
+## Mode
+VALIDATE
+
+---
+
+## Objective
+
+Validate that the most recently implemented milestone:
+
+- meets all design and spec requirements
+- behaves correctly across scenarios
+- introduces no regressions
+- is safe to proceed to the next milestone
+
+You are NOT implementing features.
+You are NOT planning new work.
+
+You are acting as a **system-level validator**.
+
+---
+
+## Source of Truth (STRICT)
+
+You MUST validate against:
+
+- specs/*.md (PRIMARY contracts)
+- SPEC.md (expected behavior)
+- PLANS.md (exit criteria)
+- DECISIONS.md (constraints)
+
+### Priority Order
+1. specs/*.md
+2. SPEC.md
+3. PLANS.md
+
+If implementation conflicts with any:
+→ it is a FAILURE
+
+---
+
+## Validation Quality Criteria (MANDATORY)
+
+The implementation MUST satisfy:
+
+- **Correctness**
+  - matches design contracts exactly
+- **Completeness**
+  - all milestone requirements implemented
+- **Robustness**
+  - handles edge cases and failures
+- **Consistency**
+  - no regression or broken interfaces
+- **Determinism**
+  - behavior is predictable and testable
+
+---
+
+## Validation Scope
+
+You MUST validate:
+
+### 1. Contract Adherence
+
+Verify:
+- all interfaces match specs
+- all schemas are respected
+- no missing fields or mismatched types
+
+---
+
+### 2. Behavior Validation
+
+Check:
+- expected flows work
+- invalid inputs are handled
+- failure paths behave correctly
+
+---
+
+### 3. Test Coverage
+
+Evaluate:
+- are tests present?
+- do tests map to design?
+- do tests cover:
+  - success cases
+  - edge cases
+  - failure modes
+
+---
+
+### 4. Regression Check
+
+Ensure:
+- no existing functionality is broken
+- no unintended side effects introduced
+
+---
+
+### 5. System Integration
+
+Validate integration with:
+- store adapters
+- subprocess model
+- IPC endpoints
+- runtime config
+
+---
+
+## Evaluation Method (REQUIRED)
+
+Use a structured evaluation loop:
+
+### Phase 1 — Inspect
+- review implementation
+- identify mismatches
+
+### Phase 2 — Critique
+For each issue:
+
+- what failed
+- why it failed
+- severity (blocking / non-blocking)
+
+### Phase 3 — Decide
+
+If ANY blocking issue exists:
+→ milestone is NOT complete
+
+If no blocking issues:
+→ milestone is VALID
+
+---
+
+## Failure Classification
+
+All issues MUST be categorized:
+
+- **BLOCKING**
+  - violates spec
+  - breaks functionality
+  - unsafe to proceed
+
+- **NON-BLOCKING**
+  - improvement or optimization
+  - does not affect correctness
+
+---
+
+## Drift Detection (CRITICAL)
+
+You MUST check for:
+
+- divergence from SPEC.md
+- deviation from design contracts
+- silent assumption changes
+
+If detected:
+→ mark as BLOCKING
+
+---
+
+## Validation Artifacts (CRITICAL)
+
+You MUST:
+
+- confirm or update tests
+- ensure reproducibility
+- ensure validation is repeatable
+
+Validation must not depend on chat context.
+
+---
+
+## Self-Review (REQUIRED)
+
+Before finalizing:
+
+1. Ensure:
+   - all validation areas checked
+   - no missing failure modes
+   - conclusions are justified
+
+2. Refine once.
+
+DO NOT output first pass.
+
+---
+
+## Constraints
+
+- Do NOT introduce new requirements
+- Do NOT skip failing checks
+
+---
+
+## Required Output
+
+### A. Validated Milestone
+Identify the milestone being evaluated.
+
+---
+
+### B. Validation Summary
+PASS or FAIL
+
+---
+
+### C. Blocking Issues
+List ALL blocking problems:
+
+- issue
+- root cause
+- impacted component
+
+---
+
+### D. Non-Blocking Issues
+List improvements or minor gaps.
+
+---
+
+### E. Test Coverage Assessment
+Evaluate completeness of tests.
+
+---
+
+### F. Final Decision
+
+- READY FOR NEXT MILESTONE
+OR
+- REQUIRES FIXES (DO NOT PROCEED)
+
+---
+
+### G. Update docuementation
+
+- If REQUIRES FIXES, update the necessary milestone with REQUIRES FIX and why it did not validate in PLAN.md, add QUESTIONS.md if necessary.
+- If READY FOR NEXT MILESTONE, update PLAN.md to complete current milestone.
+
+## Done When
+
+- full system-level validation is complete
+- all blocking issues identified
+- milestone status is clearly determined
+- next step is unambiguous

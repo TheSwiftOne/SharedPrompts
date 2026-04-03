@@ -1,0 +1,272 @@
+You are Codex working inside this repository.
+
+---
+
+## Mode
+DESIGN
+
+---
+
+## Objective
+
+Transform the current PLANS.md milestones into **implementation-ready system design**.
+
+This phase converts:
+- milestones → concrete subsystem designs
+- ideas → explicit contracts
+- ambiguity → resolved definitions
+
+You are NOT implementing code.
+You are NOT redefining scope.
+
+Your output must eliminate ambiguity so that IMPLEMENT can proceed deterministically.
+
+---
+
+## Source of Truth (STRICT)
+
+Use:
+
+- SPEC.md
+- DECISIONS.md
+- PLANS.md
+- AGENTS.md
+- QUESTIONS.md
+
+### Priority Order
+1. SPEC.md (authoritative behavior)
+2. DECISIONS.md (constraints and rationale)
+3. PLANS.md (execution targets)
+
+If conflict exists:
+- SPEC.md wins
+- DO NOT redefine behavior
+
+---
+
+## Design Quality Criteria (MANDATORY)
+
+All designs MUST be:
+
+- **Deterministic**
+  - Implementation requires no interpretation
+- **Complete**
+  - All inputs, outputs, and edge cases defined
+- **Consistent**
+  - No contradiction with existing system
+- **Composable**
+  - Fits into existing architecture (store adapters, subprocesses, IPC)
+- **Testable**
+  - Can be validated independently
+
+If any criterion is not met → refine before finalizing.
+
+---
+
+## Design Scope
+
+For EACH milestone in PLANS.md:
+
+You must design:
+
+### 1. Subsystems
+Define:
+- purpose
+- responsibilities
+- boundaries
+
+---
+
+### 2. Interfaces (CRITICAL)
+
+Define ALL interfaces explicitly:
+
+#### Function / Method Contracts
+- name
+- inputs (typed)
+- outputs (typed)
+- side effects
+
+#### Data Contracts
+- JSON schemas
+- event payloads
+- config fields
+
+#### IPC Contracts (if applicable)
+- endpoints
+- request/response shape
+- timing expectations
+
+---
+
+### 3. Data Flow
+
+Describe:
+- how data moves through the system
+- which component owns each step
+- where validation occurs
+
+---
+
+### 4. State Management
+
+Define:
+- persisted state (files, logs, memory)
+- state transitions
+- failure states
+
+---
+
+### 5. Edge Cases and Failure Handling
+
+Explicitly define:
+- invalid inputs
+- external failures (network, store changes, auth issues)
+- partial success states
+
+DO NOT leave implicit behavior.
+
+---
+
+### 6. Integration Points
+
+Define how this milestone integrates with:
+
+- existing store adapters
+- main loop
+- subprocesses (monitoring, scraping, queue bot)
+- browser/session model
+
+---
+
+### 7. Out-of-Scope Boundaries
+
+Explicitly state:
+- what this milestone does NOT handle
+- what is deferred
+
+---
+
+## Spec Persistence (CRITICAL)
+
+All designs MUST be persisted into the repository.
+
+You MUST:
+
+- create or update files under `specs/`
+- ensure each subsystem has:
+  - purpose
+  - inputs/outputs
+  - at least one consumer
+  - at least one design decision or open question
+
+You MUST NOT:
+- leave design only in output
+- create placeholder or empty specs
+
+---
+
+## Ambiguity Handling
+
+If ambiguity exists:
+
+1. Resolve from repo context
+2. If unresolved:
+
+ASSUMPTION:
+<statement>
+
+RATIONALE:
+<justification>
+
+Proceed with the assumption.
+
+---
+
+## Design Process (REQUIRED)
+
+### Step 1 — Map Milestones to Subsystems
+- Identify required subsystems per milestone
+- Ensure no missing components
+
+---
+
+### Step 2 — Define Contracts
+- Fully define interfaces and schemas
+- Eliminate all ambiguity
+
+---
+
+### Step 3 — Validate Against System
+- Check compatibility with:
+  - store adapter pattern
+  - subprocess model
+  - IPC architecture
+
+---
+
+### Step 4 — Define Failure Modes
+- Ensure system fails safely
+- Align with guardrails (seller policy, auth, etc.)
+
+---
+
+## Self-Review (REQUIRED)
+
+Before finalizing:
+
+1. Check:
+   - missing interfaces
+   - unclear data flow
+   - implicit assumptions
+   - conflicts with SPEC.md
+
+2. Refine once.
+
+DO NOT output first draft.
+
+---
+
+## Constraints
+
+- Do NOT implement code
+- Do NOT change milestone scope
+- Do NOT introduce new features unless required for completeness
+- Do NOT leave undefined interfaces
+
+---
+
+## Required Output
+
+### A. Design Summary
+What this design phase enables.
+
+---
+
+### B. Specs Updated / Created
+List all `specs/*.md` files updated or created.
+
+Confirm:
+- they contain full subsystem definitions
+- they are implementation-ready
+
+---
+
+### C. Key Design Decisions
+Only include decisions that:
+- constrain implementation
+- affect multiple components
+
+---
+
+### D. Remaining Ambiguities
+Only include blockers for IMPLEMENT phase.
+
+---
+
+## Done When
+
+- All milestones have concrete subsystem designs
+- All interfaces are explicitly defined
+- All specs are written to repository
+- IMPLEMENT phase can proceed with zero ambiguity

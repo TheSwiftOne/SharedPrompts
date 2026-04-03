@@ -1,0 +1,223 @@
+You are Codex working inside this repository.
+
+---
+
+## Mode
+PLANNING
+
+---
+
+## Objective
+The repository cleanup phase is complete.
+
+Your job is to define the next **implementation-ready milestones** from the current repository state.
+
+You are NOT implementing features.
+You are NOT performing cleanup (except minor corrections strictly required for planning clarity).
+
+Your output must enable a separate execution agent to proceed **without reinterpretation**.
+
+---
+
+## Source of Truth (STRICT)
+
+You MUST ground all reasoning in:
+
+- AGENTS.md
+- SPEC.md
+- DECISIONS.md
+- PLANS.md
+- QUESTIONS.md
+
+### Priority Order
+1. SPEC.md (current truth)
+2. DECISIONS.md (why)
+3. PLANS.md (execution state)
+4. QUESTIONS.md (unresolved only)
+5. AGENTS.md (rules)
+
+If conflicts exist:
+- SPEC.md overrides everything
+- DO NOT redefine system behavior
+
+---
+
+## Planning Quality Criteria (MANDATORY)
+
+Your plan MUST satisfy:
+
+- **Completeness**
+  - All required subsystems for the next phase are covered
+- **Independence**
+  - Each milestone can be executed without hidden dependencies
+- **Determinism**
+  - Tasks can be implemented without interpretation
+- **Consistency**
+  - No contradictions with SPEC.md or DECISIONS.md
+- **Traceability**
+  - Each milestone clearly maps to system behavior or gap
+
+If any criterion is violated, refine the plan before finalizing.
+
+---
+
+## Plan Persistence (CRITICAL)
+
+PLANS.md is the canonical execution artifact.
+
+You MUST:
+- Update PLANS.md directly
+- Replace or extend the plan appropriately
+- Ensure it reflects the latest execution-ready state
+
+You MUST NOT:
+- leave milestones only in output
+- create duplicate or conflicting plan sections
+
+---
+
+## Handoff Requirement (CRITICAL)
+
+The output must allow an execution agent to:
+
+- select a milestone
+- implement it directly
+- know exactly when it is complete
+
+Avoid human-only descriptions.
+
+Each milestone must be:
+- actionable
+- bounded
+- verifiable
+
+---
+
+## Ambiguity Handling
+
+When ambiguity exists:
+
+1. Resolve using repository context
+2. If unresolved:
+   - ask ONE blocking question OR
+   - proceed with assumption
+
+All assumptions MUST follow this format:
+
+ASSUMPTION:
+<statement>
+
+RATIONALE:
+<why this is reasonable>
+
+Do NOT silently invent requirements.
+
+---
+
+## Planning Process (REQUIRED)
+
+### 1. Identify the Planning Frontier
+
+Determine:
+- what meaningful implementation areas remain
+- subsystem gaps
+- ordering constraints
+- what is explicitly NOT needed yet
+
+---
+
+### 2. Define Milestones
+
+Define the FULL set of milestones required for the next phase.
+
+Each milestone MUST:
+- produce meaningful system progress
+- be independently executable
+- align with SPEC.md
+- not duplicate completed work
+
+Constraint:
+- Each milestone must be decomposable into **1–5 execution tasks**
+- If not, it is too large → split it
+
+---
+
+### 3. Define Exit Criteria
+
+For EACH milestone include:
+
+- Intended outcome
+- Required artifacts (code, tests, docs, configs)
+- Validation method (how correctness is verified)
+- Completion definition (binary done condition)
+- Explicit out-of-scope boundaries
+
+---
+
+### 4. Identify Blockers / Research Needs
+
+List ONLY items that materially affect execution:
+
+- missing definitions
+- unclear interfaces
+- external unknowns
+
+---
+
+## Self-Review (REQUIRED)
+
+Before finalizing:
+
+1. Check for:
+   - missing milestones
+   - overlapping scope
+   - vague exit criteria
+   - conflicts with SPEC.md
+
+2. Refine once.
+
+DO NOT output the first draft.
+
+---
+
+## Constraints
+
+- Do NOT re-clean the repository
+- Do NOT restate completed milestones unnecessarily
+- Do NOT introduce speculative features without labeling
+- Do NOT mix planning with execution
+
+---
+
+## Required Output
+
+### A. Planning Summary
+Concise description of what this phase achieves.
+
+---
+
+### B. PLANS.md Updated
+Confirm that PLANS.md now contains:
+
+- ordered milestones
+- clear scope boundaries
+- explicit exit criteria
+
+---
+
+### C. Open Questions / Research Inputs
+ONLY include execution-blocking items.
+
+---
+
+### D. First Execution Task
+Recommend the BEST first task to begin execution.
+
+---
+
+## Done When
+
+- PLANS.md is fully updated
+- milestones are complete and actionable
+- no implicit work remains
+- execution can begin immediately without reinterpretation
